@@ -1,0 +1,347 @@
+
+ul {
+  list-style:none;
+}
+
+body { 
+    padding: 0px;
+    font-family: "微软雅黑";
+
+    background:url(../img/com_bg.png) repeat fixed;
+}
+
+.title {
+  height: 100px;
+  width: 1000px;
+  text-align: center;
+  margin: 0 auto;
+  overflow: hidden;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.title h1 {
+  font-family: "微软雅黑";
+  font-weight:700;
+  font-size: 80px;
+  letter-spacing: -5px;
+  line-height: 120px;
+  text-align: center;
+  color: #000;
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+
+.wrapper {
+    width: 1000px;
+    margin: 25px auto;
+}
+
+.slider {
+    width: 1000px;
+    height: 428px;
+    margin: 0 auto;
+    position: relative;
+    border: 10px solid #ccc;
+    background: url(../img/bg.png) repeat fixed;
+
+}
+
+.scroll {
+  overflow: visible;
+  width: 1000px;
+  height: 428px;
+    margin: 0 auto;
+    position: absolute;
+}
+
+.scrollContainer {
+  position: absolute;
+}
+
+
+#left-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12px;
+  bottom: 0;
+  background: url(../img/leftshadow.png) repeat-y;
+}
+
+#right-shadow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 12px;
+  bottom: 0;
+  background: url(../img/rightshadow.png) repeat-y;
+}
+
+.inside {
+  padding: 10px;
+  border: 1px solid #999;
+  z-index: 0;
+}
+
+.inside img {
+  display: block;
+  border: 1px solid #666;
+  margin: 0 0 10px 0;
+  width: 250px;
+  z-index: 10;
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+    
+  -webkit-transform:scale(1.0);
+  -moz-transform:scale(1.0);
+  -ms-transform:scale(1.0);
+  -o-transform:scale(1.0);
+  transform:scale(1.0);
+
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+
+.inside h2 {
+  font-weight: normal;
+  color: #000;
+  font-size: 16px;
+  margin: 0 0 8px 0;
+}
+
+.inside p {
+  font-size: 11px;
+  color: #000;
+}
+
+.inside:hover {
+  box-shadow: 0px 0px 0px 12px #666666;
+  
+}
+
+.inside img:hover {
+  z-index: 100;
+  -webkit-transform:scale(2.0);
+  -moz-transform:scale(2.0);
+  -ms-transform:scale(2.0);
+  -o-transform:scale(2.0);
+  transform:scale(2.0);
+  position: relative;
+  float:center;
+}
+
+
+a {
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px dotted #ccc;
+}
+
+a:hover {
+  border-bottom: 1px solid #333;
+}
+
+.scroll-left {
+  position: absolute;
+    top: 187px;
+    cursor: pointer;
+    left: -85px;
+    z-index: 1;
+}
+
+.scroll-right {
+  position: absolute;
+    top: 187px;
+    cursor: pointer;
+    right: -85px;
+    z-index: 1;
+}
+
+.panel_1 {
+  display: inline-block; 
+  width: 274px;
+  margin-left: 10px;
+  padding: 10px;
+  margin-right: auto;
+  z-index: 1;
+}
+.panel_2 {
+  display:inline-block; 
+  width: 350px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+}
+.panel_3 {
+  display: inline-block;
+  width: 274px;
+  margin-right: 10px;
+  padding: 10px;
+  margin-left: auto;
+  z-index: 1;
+}
+
+.commentlist {
+  width: 1000px;
+  margin: 20px auto;
+  position: relative;
+}
+
+.qPager{
+  clear:both;
+  height:22px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.qPager .stat{
+  float:left;
+  font-size:22px;
+  color:#000;
+  margin:0;
+  padding:0;
+  margin-right:10px;
+  line-height:22px;
+}
+.qPager .pages{
+  float:right;
+  margin:0;
+  padding:0;
+
+}
+.qPager .pages li{
+  float:left;
+  height:22px;
+  margin-right:3px;
+}
+.qPager .pages li button{
+  float:left;
+  display:block;
+  padding:0 3px 0 2px;
+  line-height:22px;
+  font-size:14px;
+  overflow:hidden;
+  font-family: "微软雅黑";
+  font-weight:10;
+  font-size:20px;
+}
+.qPager .pages li button:hover{
+  height:20px;
+  line-height:20px;
+  border:2px solid #000;
+  padding:0 1px 0 1px;
+  text-decoration:none;
+}
+
+.qPager .turn{
+  float:right;
+  margin:0;
+  padding:0;
+
+}
+.qPager .turn li{
+  height:22px;
+  float:left;
+}
+.qPager .turn button{
+  display:block;
+  position:relative;
+  line-height:20px;
+  text-align:center;
+  border:1px solid #e5e5e5;
+  font-family: "微软雅黑";
+  font-weight:10;
+  font-size:20px;
+}
+.qPager .turn button:hover{
+  border-color:#c6c6c6;
+  text-decoration:none;
+  border:2px solid #000;
+  line-height:20px;
+  padding:0 4px 0 2px;
+}
+.qPager .turn .pre{
+  float:left;
+}
+.qPager .turn .next{
+  float:left;
+  margin-left:5px;
+}
+.qPager .turn .pre button{
+  padding-left:10px;
+}
+.qPager .turn .next button{
+  padding-right:10px;
+}
+
+.comment{
+  padding-bottom:10px;
+  margin-bottom:12px;
+  border-bottom:1px solid #e5e5e5;
+  background: url(../img/bg.png) repeat;
+}
+.commentcon{
+  position:relative;
+  padding-bottom:2px;
+  margin-top:10px;
+}
+.commentcon:hover {
+  box-shadow: 0px 0px 15px 12px #666666;
+}
+.comment .userPhoto{
+  float:left;
+  margin-right:10px;
+  width:50px;
+  text-align:center;
+  margin-top:5px;
+}
+.comment .userPhoto img{
+  width:50px;
+  height:50px;
+}
+.comment .userPhoto span{
+  color:#bbb;
+}
+
+.comment .bar {
+  text-align:left;
+  font-weight:bold;
+  line-height:14px;
+  right:10px;
+  top:3px;
+  color:#909090;
+  height:18px;
+  position:relative;
+  
+}
+
+.comment .con{
+  padding-top:5px;
+  overflow:hidden;
+}
+.comment .con img{
+  vertical-align:middle;
+}
+.comment .con del{
+  color:#909090;
+  text-decoration:none;
+}
+.comment .con .text{
+  margin-bottom:10px;
+}
+.comment .con .panel span{
+  color:#909090;
+}
+.comment .con .panel em{
+  font-style:normal;
+}
