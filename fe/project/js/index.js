@@ -28,15 +28,15 @@ window.onload = function(){
 	{
 		storage.setItem("background_volume", 1);
 	}
-	var background_volume = parseFloat(storage.background_volume) * 440;
-	if(background_volume < 440 && background_volume > 0)
+	var background_volume = Math.floor(parseFloat(storage.background_volume) * 440);
+	if(background_volume <= 440 && background_volume >= 0)
 	{
 		$('#background-volume-control').css('margin-left', background_volume - 10 + 'px');
 		$('#background-volume-value').css('width', background_volume + 'px');
 		$('#background-music')[0].volume = parseFloat(storage.background_volume);				
 	}
-	var game_volume = parseFloat(storage.game_volume) * 440;
-	if(game_volume < 440 && game_volume > 0)
+	var game_volume = Math.floor(parseFloat(storage.game_volume) * 440);
+	if(game_volume <= 440 && game_volume >= 0)
 	{
 		$('#game-volume-control').css('margin-left', game_volume - 10 + 'px');
 		$('#game-volume-value').css('width', game_volume + 'px');
@@ -168,24 +168,22 @@ $('#background-volume-control').mousedown(function(e){
 		if(document.body.clientWidth > 710)
 		{
 			var volume = x - (document.body.clientWidth  - 640) / 2 - 100;
-			if(volume < 440 && volume > 0)
-			{
-				$('#background-volume-control').css('margin-left', volume - 10 + 'px');
-				$('#background-volume-value').css('width', volume + 'px');
-				$('#background-music')[0].volume = volume / 440;
-				storage.background_volume = volume / 440;
-			}
+			if(volume > 440){volume = 440;}
+			if(volume < 0){volume = 0;}
+			$('#background-volume-control').css('margin-left', volume - 10 + 'px');
+			$('#background-volume-value').css('width', volume + 'px');
+			$('#background-music')[0].volume = volume / 440;
+			storage.background_volume = volume / 440;
 		}
 		else
 		{
 			var volume = x + $(document).scrollLeft() - 135;
-			if(volume < 440 && volume > 0)
-			{
-				$('#background-volume-control').css('margin-left', volume - 10  + 'px');
-				$('#background-volume-value').css('width', volume + 'px');
-				$('#background-music')[0].volume = volume / 440;
-				storage.background_volume = volume / 440;
-			}
+			if(volume > 440){volume = 440;}
+			if(volume < 0){volume = 0;}
+			$('#background-volume-control').css('margin-left', volume - 10  + 'px');
+			$('#background-volume-value').css('width', volume + 'px');
+			$('#background-music')[0].volume = volume / 440;
+			storage.background_volume = volume / 440;
 		}
 	});
 	$(document).mouseup(function(){
@@ -199,24 +197,22 @@ $('#game-volume-control').mousedown(function(e){
 		if(document.body.clientWidth > 710)
 		{
 			var volume = x - (document.body.clientWidth  - 640) / 2 - 100;
-			if(volume < 440 && volume > 0)
-			{
-				$('#game-volume-control').css('margin-left', volume - 10 + 'px');
-				$('#game-volume-value').css('width', volume + 'px');
-				$('#click-music')[0].volume = volume / 440;
-				storage.game_volume = volume / 440;
-			}
+			if(volume > 440){volume = 440;}
+			if(volume < 0){volume = 0;}
+			$('#game-volume-control').css('margin-left', volume - 10 + 'px');
+			$('#game-volume-value').css('width', volume + 'px');
+			$('#click-music')[0].volume = volume / 440;
+			storage.game_volume = volume / 440;
 		}
 		else
 		{
 			var volume = x + $(document).scrollLeft() - 135;
-			if(volume < 440 && volume > 0)
-			{
-				$('#game-volume-control').css('margin-left', volume - 10 + 'px');
-				$('#game-volume-value').css('width', volume + 'px');
-				$('#click-music')[0].volume = volume / 440;
-				storage.game_volume = volume / 440;
-			}
+			if(volume > 440){volume = 440;}
+			if(volume < 0){volume = 0;}
+			$('#game-volume-control').css('margin-left', volume - 10 + 'px');
+			$('#game-volume-value').css('width', volume + 'px');
+			$('#click-music')[0].volume = volume / 440;
+			storage.game_volume = volume / 440;
 		}
 	});
 	$(document).mouseup(function(){

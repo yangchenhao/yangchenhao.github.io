@@ -59,6 +59,9 @@ window.onload = function(){
 	}
 	$('#background-music')[0].volume = parseFloat(storage.background_volume);
 	$('#click-music')[0].volume = parseFloat(storage.game_volume);
+	$('#jump-music')[0].volume = parseFloat(storage.game_volume);
+	$('#coin-music')[0].volume = parseFloat(storage.game_volume);
+	$('#gameover-music')[0].volume = parseFloat(storage.game_volume);
 	if(!storage.getItem("time"))
 	{
 		storage.setItem("time", "0,0,0,0,0,0,0,0,0,0");
