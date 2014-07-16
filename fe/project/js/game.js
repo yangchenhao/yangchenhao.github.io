@@ -5,6 +5,7 @@ var leftbulletimage;
 var rightbulletimage;
 var leftplayerimage;
 var rightplayerimage;
+var level;
 
 //定义键盘值  
 var KEY = {RIGHT:39, UP:38, LEFT:37, DOWN:40, SPACE:32, ENTER:13};  
@@ -19,7 +20,7 @@ var input = {
 };  
 //小球对象  
 var player = {  
-    speed   : 6, 
+    speed   : 8, 
     left    : 0,  
     top 	: 0,  
     xleft   : 0,  
@@ -47,7 +48,7 @@ player.update = function(){
     if (input.right)    player.left+=player.speed;  
     if (input.left)     player.left-=player.speed;  
     if (input.up && input.uplimit)     player.gspeed-=player.speed;
-	if (player.gspeed<-25)  {player.gspeed=-25; input.uplimit=false;}
+	if (player.gspeed<-20)  {player.gspeed=-20; input.uplimit=false;}
 	player.top+=player.gspeed;  
 	player.gspeed+=1;
     if (player.left>player.dleft)    player.left=player.dleft;  
@@ -252,23 +253,24 @@ var begin;
 var time = 0;  
 //加载事件  
 var load = function(){  
+	level = 0;
     player.init(); 
     for(i=0;i<50;i++){  
         var s = new coin();  
         s.init();  
         coins[i] = s;  
     }  
-    for(i=0;i<1;i++){
+    for(i=0;i<2;i++){
         var s = new bullet_left();  
         s.init();  
         bullets_left[i] = s;
     }   
-    for(i=0;i<1;i++){
+    for(i=0;i<2;i++){
         var s = new bullet_right();  
         s.init();  
         bullets_right[i] = s;
     }   
-    for(i=0;i<2;i++){
+    for(i=0;i<5;i++){
         var s = new bomb();  
         s.init();  
         bombs[i] = s;
@@ -288,13 +290,13 @@ var update = function(){
     for(i=0;i<coins.length;i++){  
         coins[i].update();  
     }   
-    for(i=0;i<bullets_left.length;i++){  
+    for(i=0;i<Math.floor((level+2)/4);i++){  
         bullets_left[i].update();  
     }  
-    for(i=0;i<bullets_right.length;i++){  
+    for(i=0;i<Math.floor((level)/4);i++){  
         bullets_right[i].update();  
     }  
-    for(i=0;i<bombs.length;i++){  
+    for(i=0;i<Math.floor((level+1)/2);i++){  
         bombs[i].update();  
     }  
     updatetime(); 
@@ -310,6 +312,9 @@ var gameover = false;
 var updatetime = function(){      
     var end = new Date();  
     var time = Math.round((end-begin-deltaTime)/1000);  
+	level = Math.floor(time/10);
+	if(level > 9){level = 9;}
+    $("#level")[0].innerHTML = level+1;
     $("#time")[0].innerHTML = time;  
 }  
 

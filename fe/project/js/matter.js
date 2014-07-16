@@ -11,18 +11,19 @@ $('#restart').click(function(){
     $('#gameover').css('z-index', 0);
     $('#gameoverContainer_dark').css('opacity', 0);
     $('#gameoverContainer_dark').css('z-index', 0);
-
+	
+	level = 0;
     player.init(); 
     for(i=0;i<50;i++){  
         coins[i].init();  
     }  
-    for(i=0;i<1;i++){
+    for(i=0;i<2;i++){
         bullets_left[i].init();
     }   
-    for(i=0;i<1;i++){
+    for(i=0;i<2;i++){
         bullets_right[i].init();
     }   
-    for(i=0;i<2;i++){
+    for(i=0;i<5;i++){
         bombs[i].init();
     }
 
@@ -71,25 +72,6 @@ $('#about').click(function(){
     $('#gameoverContainer').css('z-index', 2);
     $('#about_box').css('opacity', 1);
     $('#about_box').css('z-index', 3);
-    $('#gameoverContainer_dark').css('opacity', 0.7);
-    $('#gameoverContainer_dark').css('z-index', 1);
-    if(!pause && !gameover){begin_pause = new Date(); pause = true;}
-    clearInterval(myInter); 
-});
-$('#contact').click(function(){
-    $("#click-music")[0].play();
-    $('#gameover').css('opacity', 0);
-    $('#gameover').css('z-index', 0);
-    $('#donate_box').css('opacity', 0);
-    $('#donate_box').css('z-index', 0);
-    $('#about_box').css('opacity', 0);
-    $('#about_box').css('z-index', 0);
-    $('#cheats_box').css('opacity', 0);
-    $('#cheats_box').css('z-index', 0);
-    $('#gameoverContainer').css('opacity', 0.6);
-    $('#gameoverContainer').css('z-index', 2);
-    $('#contact_box').css('opacity', 1);
-    $('#contact_box').css('z-index', 3);
     $('#gameoverContainer_dark').css('opacity', 0.7);
     $('#gameoverContainer_dark').css('z-index', 1);
     if(!pause && !gameover){begin_pause = new Date(); pause = true;}
