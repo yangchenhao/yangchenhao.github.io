@@ -27,6 +27,26 @@ window.onresize = function(){
 }
 
 window.onload = function(){
+	coinimage = new Image();
+	coinimage.src = 'img/coin.png';
+	leftbulletimage = new Image();
+    leftbulletimage.src = 'img/bullet_left.png';
+	rightbulletimage = new Image();
+    rightbulletimage.src = 'img/bullet_right.png';
+    bombimage = new Image();
+    bombimage.src = 'img/bomb.png';
+    leftplayerimage = [];
+    for(var i=0; i<8; i++)
+    {
+    	leftplayerimage[i] = new Image();
+    	leftplayerimage[i].src = 'img/player' + i + 'v.png';
+    }
+    rightplayerimage = [];
+    for(var i=0; i<8; i++)
+    {
+    	rightplayerimage[i] = new Image();
+    	rightplayerimage[i].src = 'img/player' + i + '.png';
+    }
 	load();
 	storage = window.localStorage;
 	if(!storage.getItem("game_volume"))

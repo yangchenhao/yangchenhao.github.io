@@ -1,4 +1,10 @@
 var storage = window.localStorage;
+var coinimage;
+var bombimage;
+var leftbulletimage;
+var rightbulletimage;
+var leftplayerimage;
+var rightplayerimage;
 
 //定义键盘值  
 var KEY = {RIGHT:39, UP:38, LEFT:37, DOWN:40, SPACE:32, ENTER:13};  
@@ -49,14 +55,10 @@ player.update = function(){
     if (player.top>player.dtop)  {player.top=player.dtop; player.gspeed=0; input.up=false; input.ground=true;}    
        
     var cxt=$("#myCanvas")[0].getContext("2d");  
-    var img = new Image();
     var end = new Date();  
     var time = end-begin-deltaTime;  
-    if(playerleft) img.src = 'img/player' + Math.floor(time/100)%8 + 'v.png';
-    else img.src = 'img/player' + Math.floor(time/100)%8 + '.png';
-    img.onload = function(){
-        cxt.drawImage(img,player.left,player.top);
-    }     
+    if(playerleft) cxt.drawImage(leftplayerimage[Math.floor(time/100)%8],player.left,player.top);
+    else cxt.drawImage(rightplayerimage[Math.floor(time/100)%8],player.left,player.top);
 }  
  
 var coin = function(){  
@@ -84,11 +86,7 @@ var coin = function(){
         var y = this.y;
   
         var cxt=$("#myCanvas")[0].getContext("2d");  
-        var img = new Image();
-        img.src = 'img/coin.png';
-        img.onload = function(){
-            cxt.drawImage(img,x,y);
-        }      
+        cxt.drawImage(coinimage,x,y);   
     }  
     this.iscollide = function(){//判断是否被撞到  
         var x_player = player.left + 27.5;
@@ -128,11 +126,7 @@ var bullet_left = function(){
         var y = this.y;
  
         var cxt=$("#myCanvas")[0].getContext("2d");  
-        var img = new Image();
-        img.src = 'img/bullet_left.png';
-        img.onload = function(){
-            cxt.drawImage(img,x,y);
-        }     
+        cxt.drawImage(leftbulletimage,x,y);  
     }  
     this.iscollide = function(){//判断是否被撞到  
         var x_player = player.left + 27.5;
@@ -171,11 +165,7 @@ var bullet_right = function(){
         var y = this.y;
   
         var cxt=$("#myCanvas")[0].getContext("2d");  
-        var img = new Image();
-        img.src = 'img/bullet_right.png';
-        img.onload = function(){
-            cxt.drawImage(img,x,y);
-        }     
+        cxt.drawImage(rightbulletimage,x,y); 
     }  
     this.iscollide = function(){//判断是否被撞到  
         var x_player = player.left + 27.5;
@@ -216,11 +206,7 @@ var bomb = function(){
         var y = this.y;
  
         var cxt=$("#myCanvas")[0].getContext("2d");  
-        var img = new Image();
-        img.src = 'img/bomb.png';
-        img.onload = function(){
-            cxt.drawImage(img,x,y);
-        }      
+        cxt.drawImage(bombimage,x,y);
     }  
     this.iscollide = function(){//判断是否被撞到  
         var x_player = player.left + 27.5;
