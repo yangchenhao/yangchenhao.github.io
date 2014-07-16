@@ -13,6 +13,11 @@ $('#restart').click(function(){
     $('#gameoverContainer_dark').css('z-index', 0);
 	
 	level = 0;
+	wind = 0;
+	wind = 0;
+	windorigin = 0;
+	windforce = (Math.random()-0.5) * 10;
+	windchange = 0;
     player.init(); 
     for(i=0;i<50;i++){  
         coins[i].init();  

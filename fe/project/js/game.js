@@ -6,6 +6,10 @@ var rightbulletimage;
 var leftplayerimage;
 var rightplayerimage;
 var level;
+var wind;
+var windchange;
+var windforce;
+var windorigin;
 
 //定义键盘值  
 var KEY = {RIGHT:39, UP:38, LEFT:37, DOWN:40, SPACE:32, ENTER:13};  
@@ -69,15 +73,15 @@ var coin = function(){
     this.speed = 10; 
       
     this.init = function(){  
-        var rlon = Math.floor(Math.random()*($("#myCanvas")[0].width+1)); 
-        this.x = rlon;  
+        this.x = Math.floor(Math.random()*($("#myCanvas")[0].width+1) - wind*200);  
         this.y = -30; 
         this.ay = -Math.random()*this.speed;   
     }  
       
       
     this.update = function(){//更新  
-        this.y=this.y+this.ay;  
+        this.y=this.y+this.ay;
+		this.x=this.x+wind;		
         this.ay+=0.1;
         if((this.y>$("#myCanvas")[0].height)){  
             this.init(); 
@@ -190,14 +194,15 @@ var bomb = function(){
     this.speed = 10; 
       
     this.init = function(){  
-        this.x = Math.floor(Math.random()*($("#myCanvas")[0].width+1));  
+        this.x = Math.floor(Math.random()*($("#myCanvas")[0].width+1) - wind*200);  
         this.y = -120; 
         this.ay = -Math.random()*this.speed;   
     }  
       
       
     this.update = function(){//更新  
-        this.y=this.y+this.ay;  
+        this.y=this.y+this.ay;
+		this.x=this.x+wind;			
         this.ay+=0.1;
         if((this.y>$("#myCanvas")[0].height)){  
             this.init(); 
@@ -254,6 +259,10 @@ var time = 0;
 //加载事件  
 var load = function(){  
 	level = 0;
+	wind = 0;
+	windorigin = 0;
+	windforce = (Math.random()-0.5) * 10;
+	windchange = 0;
     player.init(); 
     for(i=0;i<50;i++){  
         var s = new coin();  
@@ -311,7 +320,12 @@ var gameover = false;
 
 var updatetime = function(){      
     var end = new Date();  
-    var time = Math.round((end-begin-deltaTime)/1000);  
+    var time = Math.round((end-begin-deltaTime)/1000); 	
+	if(Math.floor(time/5) - windchange == 1){windforce = (Math.random()-0.5) * 10; windorigin = wind;}
+	windchange = Math.floor(time/5);
+	wind = windorigin+windforce*(time/5-windchange);
+	if(wind > 5){wind = 5;}
+	if(wind < -5){wind = -5;}
 	level = Math.floor(time/10);
 	if(level > 9){level = 9;}
     $("#level")[0].innerHTML = level+1;
