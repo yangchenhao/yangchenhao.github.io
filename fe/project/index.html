@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>接金币小游戏</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+	</head>
+	<body background="img/background.png">
+		<audio id="background-music" src="music/index.mp3" autoplay="true" loop="loop"></audio>
+		<audio id="click-music" src="music/click.mp3"></audio>
+		<header class="clearfix">
+			<h1>接金币小游戏</h1>
+		</header>
+		<div id="layout">
+			<div>
+				<input id="start" type="button" class="button" value="开始游戏"></input>
+			</div>
+			<div>
+				<input id="help" type="button" class="button" value="游戏帮助"></input>
+			</div>
+			<div>
+				<input id="setting" type="button" class="button" value="游戏设置"></input>
+			</div>
+			<div>
+				<input id="staff" type="button" class="button" value="关于游戏"></input>
+			</div>
+			<div id="help-box-container" class="box-container">
+			</div>
+			<div id="help-box" class="box">
+				<div style="position:ralative; height:100%; width:100%">
+					<p class="box-title">游戏说明</p>
+					<p class="box-content" style="margin-left:100px">左右键控制方向<br/>上键控制跳跃<br/>尽量多的接金币<br/>同时要小心炸弹和导弹哦</p>
+					<input class="back" type="image" src="img/back.png" title="返回"></input>
+				</div>
+			</div>
+			<div id="setting-box-container" class="box-container">
+			</div>
+			<div id="setting-box" class="box">
+				<div style="position:ralative; height:100%; width:100%">
+					<p class="box-title">游戏设置</p>
+					<p class="box-content" style="margin-left:100px">背景音乐：</p>
+					<div id="background-volume" class="bar">
+						<div id="background-volume-value" class="bar-value"></div>
+						<input type="button" id="background-volume-control" class="bar-control"></input>
+					</div>
+					<p class="box-content" style="margin-left:100px">游戏音效：</p>
+					<div id="game-volume" class="bar">
+						<div id="game-volume-value" class="bar-value"></div>
+						<input type="button" id="game-volume-control" class="bar-control"></input>
+					</div>
+					<input class="back" type="image" src="img/back.png" title="返回"></input>
+				</div>
+			</div>
+			<div id="staff-box-container" class="box-container">
+			</div>
+			<div id="staff-box" class="box">
+				<div style="position:ralative; height:100%; width:100%">
+					<p class="box-title">工作人员</p>
+					<p class="box-content" style="margin-left:100px">杨晨昊 2012013278<br/>王华清 2012013317</p>
+					<input class="back" type="image" src="img/back.png" title="返回"></input>
+				</div>
+			</div>
+		</div>
+		<div id="shadow">
+		</div>
+		<script defer="defer" src="js/index.js"></script>
+	</body>
+</html>
