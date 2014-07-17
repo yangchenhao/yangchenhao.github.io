@@ -36,7 +36,7 @@ body
 header  h1
 {
 	font-family: "微软雅黑";
-	font-weight:700;
+	font-weight: 700;
 	font-size: 120px;
 	letter-spacing: -5px;
 	line-height: 120px;
@@ -204,7 +204,4 @@ header  h1
 .bar-control:active
 {
 	background: rgba(170,170,170,1);
-}
-a {
-	text-decoration:none;
 }

@@ -1,109 +1,108 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<title>羊驼驼大作战</title>
-    <script src="js/jquery2.0.0.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/game.js" type="text/javascript" charset="utf-8"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-	
-</head>
-<body onkeydown="press(event);" onkeyup="release(event);" background="img/background.png">>  
-    <audio id="background-music" src="music/game.mp3" autoplay="true" loop="loop"></audio>
-	<audio id="click-music" src="music/click.mp3"></audio>
-	<audio id="jump-music" src="music/jump.mp3"></audio>
-	<audio id="coin-music" src="music/coin.mp3"></audio>
-	<audio id="gameover-music" src="music/gameover.mp3"></audio>
-	<header id="title">
-        <h1>羊驼驼大作战</h1> 
-    </header> 
-    <div id="main">
-        <div class="container">
-            <div class="block1">
-                <div id="menu"> 
-                    <h2>游戏时间</h2> 
-                    <p><span id="time">0</span></p>
-                    <h2>金币个数</h2> 
-                    <p><span id="coinCount">0</span></p>
-                    <p>Lv.<span id="level">1</span></p>
-                    <input id="cheats" type="button" class="button" value="通关秘籍"></input>
-                    <input id="about" type="button" class="button" value="联系我们"></input>
-                    <input id="donate" type="button" class="button" value="捐助我们"></input>
-                </div> 
-            </div>
-            <div class="block2">
-                <div style="position:ralative; height:100%; width:100%">
-                    <canvas id="myCanvas" width="1000" height="600" >  </canvas>
-                    <div id="gameoverContainer_dark" class="overcontainerDark">
-                    </div>
-                    <div id="gameoverContainer" class="overcontainer">
-                    </div>
-                    <div id="gameover" class="over">
-                        <div style="position:ralative; height:100%; width:100%">
-                            <p class="overtitle">你已经是个死人了咩哈哈</p>
-                            <input id="restart" type="image" src="img/restart.png" title="重新开始"></input>
-                            <input id="backTomenu" type="image" src="img/menu.png" title="回到菜单"></input>
-                        </div>
-                    </div>
-                    <div id="cheats_box" class="over">
-                        <div style="position:ralative; height:100%; width:100%">
-                            <p class="menutitle">心无杂念地</p>
-                            <p class="menutitle">快速按下Alt+F4</p>
-                            <p class="menutitle">即可迅速通关</p>
-                            <input class="back" type="image" src="img/back.png" title="返回"></input>
-                        </div>
-                    </div>
-                    <div id="about_box" class="over">
-                        <div style="position:ralative; height:100%; width:100%">
-                            <p class="menutitle">制作人:</p>
-                            <p class="menutitle">paddywhq@163.com</p>
-                            <p class="menutitle">yangch940115@gmail.com</p>
-                            <input class="back" type="image" src="img/back.png" title="返回"></input>
-                        </div>
-                    </div>
-                    <div id="contact_box" class="over">
-                        <div style="position:ralative; height:100%; width:100%">
-                            <p class="menutitle">email:</p>
-                            <p class="menutitle">paddywhq@163.com</p>
-                            <p class="menutitle">yangch940115@gmail.com</p>
-                            <input class="back" type="image" src="img/back.png" title="返回"></input>
-                        </div>
-                    </div>
-                    <div id="donate_box" class="over">
-                        <div style="position:ralative; height:100%; width:100%">
-                            <p class="menutitle">看到这位面善的施主</p>
-                            <p class="menutitle">两只羊驼驼流下了激动的热泪：</p>
-                            <p class="menutitle">我们是你的驼了！</p>
-                            <input class="back" type="image" src="img/back.png" title="返回"></input>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="block1">
-                <div id="score">
-                    <h2 id="scoreTitle">时间排行榜</h2>
-                    <div class="scoreContainer">
-                        <p>No.0&nbsp<span id="rank0">0</span></p>
-                        <p>No.1&nbsp<span id="rank1">0</span></p>
-                        <p>No.2&nbsp<span id="rank2">0</span></p>
-                        <p>No.3&nbsp<span id="rank3">0</span></p>
-                        <p>No.4&nbsp<span id="rank4">0</span></p>
-                        <p>No.5&nbsp<span id="rank5">0</span></p>
-                        <p>No.6&nbsp<span id="rank6">0</span></p>
-                        <p>No.7&nbsp<span id="rank7">0</span></p>
-                        <p>No.8&nbsp<span id="rank8">0</span></p>
-                        <p>No.9&nbsp<span id="rank9">0</span></p>
-                    </div>
-                    <input id="rankByTime" type="button" class="button_s" value="时间"></input>
-                    <input id="rankByCoin" type="button" class="button_s" value="金币"></input>
-                </div>
-            </div>
-        </div>
-    </div>
-    <footer>
-        <p>&copy; 2014 All rights reserved</p>
-    </footer>
-	<script src="js/style.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/matter.js" type="text/javascript" charset="utf-8"></script>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>羊驼驼大作战</title>
+		<script src="js/jquery2.0.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script src="js/game.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" /> 	
+	</head>
+	<body onkeydown="press(event);" onkeyup="release(event);" background="img/background.png">>  
+		<audio id="background-music" src="music/game.mp3" autoplay="true" loop="loop"></audio>
+		<audio id="click-music" src="music/click.mp3"></audio>
+		<audio id="jump-music" src="music/jump.mp3"></audio>
+		<audio id="coin-music" src="music/coin.mp3"></audio>
+		<audio id="gameover-music" src="music/gameover.mp3"></audio>
+		<header id="title">
+			<h1>羊驼驼大作战</h1> 
+		</header> 
+		<div id="main">
+			<div class="container">
+				<div class="block1">
+					<div id="menu"> 
+						<h2>游戏时间</h2> 
+						<p><span id="time">0</span></p>
+						<h2>金币个数</h2> 
+						<p><span id="coinCount">0</span></p>
+						<p>Lv.<span id="level">1</span></p>
+						<input id="cheats" type="button" class="button" value="通关秘籍"></input>
+						<input id="about" type="button" class="button" value="联系我们"></input>
+						<input id="donate" type="button" class="button" value="捐助我们"></input>
+					</div> 
+				</div>
+				<div class="block2">
+					<div style="position:ralative; height:100%; width:100%">
+						<canvas id="myCanvas" width="1000" height="600" >  </canvas>
+						<div id="gameoverContainer_dark" class="overcontainerDark">
+						</div>
+						<div id="gameoverContainer" class="overcontainer">
+						</div>
+						<div id="gameover" class="over">
+							<div style="position:ralative; height:100%; width:100%">
+								<p class="overtitle">你已经是个死驼了咩哈哈</p>
+								<input id="restart" type="image" src="img/restart.png" title="重新开始"></input>
+								<input id="backTomenu" type="image" src="img/menu.png" title="回到菜单"></input>
+							</div>
+						</div>
+						<div id="cheats_box" class="over">
+							<div style="position:ralative; height:100%; width:100%">
+								<p class="menutitle">心无杂念地</p>
+								<p class="menutitle">快速按下Alt+F4</p>
+								<p class="menutitle">即可迅速通关</p>
+								<input class="back" type="image" src="img/back.png" title="返回"></input>
+							</div>
+						</div>
+						<div id="about_box" class="over">
+							<div style="position:ralative; height:100%; width:100%">
+								<p class="menutitle">制作人:</p>
+								<p class="menutitle">paddywhq@163.com</p>
+								<p class="menutitle">yangch940115@gmail.com</p>
+								<input class="back" type="image" src="img/back.png" title="返回"></input>
+							</div>
+						</div>
+						<div id="contact_box" class="over">
+							<div style="position:ralative; height:100%; width:100%">
+								<p class="menutitle">email:</p>
+								<p class="menutitle">paddywhq@163.com</p>
+								<p class="menutitle">yangch940115@gmail.com</p>
+								<input class="back" type="image" src="img/back.png" title="返回"></input>
+							</div>
+						</div>
+						<div id="donate_box" class="over">
+							<div style="position:ralative; height:100%; width:100%">
+								<p class="menutitle">看到这位面善的施主</p>
+								<p class="menutitle">两只羊驼驼流下了激动的热泪：</p>
+								<p class="menutitle">我们是你的驼了！</p>
+								<input class="back" type="image" src="img/back.png" title="返回"></input>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="block1">
+					<div id="score">
+						<h2 id="scoreTitle">时间排行榜</h2>
+						<div class="scoreContainer">
+							<p>No.0&nbsp<span id="rank0">0</span></p>
+							<p>No.1&nbsp<span id="rank1">0</span></p>
+							<p>No.2&nbsp<span id="rank2">0</span></p>
+							<p>No.3&nbsp<span id="rank3">0</span></p>
+							<p>No.4&nbsp<span id="rank4">0</span></p>
+							<p>No.5&nbsp<span id="rank5">0</span></p>
+							<p>No.6&nbsp<span id="rank6">0</span></p>
+							<p>No.7&nbsp<span id="rank7">0</span></p>
+							<p>No.8&nbsp<span id="rank8">0</span></p>
+							<p>No.9&nbsp<span id="rank9">0</span></p>
+						</div>
+						<input id="rankByTime" type="button" class="button_s" value="时间"></input>
+						<input id="rankByCoin" type="button" class="button_s" value="金币"></input>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<p>&copy; 2014 All rights reserved</p>
+		</footer>
+		<script src="js/gamestyle.js" type="text/javascript" charset="utf-8"></script>
+	</body>
 </html>
